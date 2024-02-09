@@ -25,6 +25,7 @@ st.title('Nesta Página')
 st.markdown('''Você poderá ver quais alunos estão matriculados na **Universidade Federal de Tangamandápio**
 \nClique no botão :red["Mostrar alunos matriculados"] para ver nossa lista de alunos matriculados''')
 if st.button('Mostrar alunos matriculado'):
+        pagina_exibicao()
 def pagina_exibicao():
     st.title('Listagem de alunos matriculados')
     conexao = conn_mysql()
