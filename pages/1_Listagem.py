@@ -20,12 +20,7 @@ def conn_mysql():
             return None
 
 
-st.header('Listagem dos Alunos', divider='rainbow')
-st.title('Nesta Página')
-st.markdown('''Você poderá ver quais alunos estão matriculados na **Universidade Federal de Tangamandápio**
-\nClique no botão :red["Mostrar alunos matriculados"] para ver nossa lista de alunos matriculados''')
-if st.button('Mostrar alunos matriculado'):
-        pagina_exibicao()
+
 def pagina_exibicao():
     st.title('Listagem de alunos matriculados')
     conexao = conn_mysql()
@@ -36,3 +31,9 @@ def pagina_exibicao():
         st.write("Resultados da consulta ao banco de dados MySQL: ")
         for resultado in resultados:
             st.write(f'CPF: {resultado[0]}, Nome: {resultado[1]}, Curso: {resultado[2]}, Telefone de contato: {resultado[3]}, Email: {resultado[4]}')
+st.header('Listagem dos Alunos', divider='rainbow')
+st.title('Nesta Página')
+st.markdown('''Você poderá ver quais alunos estão matriculados na **Universidade Federal de Tangamandápio**
+\nClique no botão :red["Mostrar alunos matriculados"] para ver nossa lista de alunos matriculados''')
+if st.button('Mostrar alunos matriculado'):
+        pagina_exibicao()
