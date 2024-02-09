@@ -7,29 +7,6 @@ import mysql.connector
 import streamlit as st
 import numpy as np
 import pandas as pd
-import streamlit_authenticator as stauth
-import yaml
-from yaml.loader import SafeLoader
-
-with open('https://github.com/HannaJullie-Py/UFTM/blob/main/config/config.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
-
-authenticator = Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
-name, authentication_status, username = authenticator.login('Login', 'main')
-if authentication_status:
-    authenticator.logout('Logout', 'main')
-    mae()
-elif authentication_status == False:
-    st.error('Nome ou senha incorretos')
-elif authentication_status == None:
-    st.warning('Por favor coloque seu nome e senha')
-
 
 def mae():
 ##### Conexão ao Banco MySQL #####
@@ -118,3 +95,4 @@ def mae():
         if st.button ('Mostrar alunos matriculados'):
             st.divider()
             pagina_exibicao()        
+mae()
