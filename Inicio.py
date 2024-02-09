@@ -3,7 +3,7 @@
 #pip install streamlit-authenticator
 #pip install streamlit
 
-import mysql.connector
+import mysql-connector
 import streamlit as st
 import numpy as np
 import pandas as pd
