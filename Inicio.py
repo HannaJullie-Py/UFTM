@@ -2,7 +2,7 @@
 #pip install mysql-connector-python
 #pip install streamlit-authenticator
 #pip install streamlit
-
+import mysql
 import mysql-connector
 import streamlit as st
 import numpy as np
