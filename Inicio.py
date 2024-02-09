@@ -8,9 +8,9 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-def mae():
+
 ##### Conexão ao Banco MySQL #####
-    def conn_mysql():
+def conn_mysql():
         config = {
             "user" : "root",
             "password" : "ctti",
@@ -26,54 +26,9 @@ def mae():
         except mysql.connector.Error as err:
             st.error(f"Erro ao conectar ao banco MySQL: {err}")
             return None
-        
-    ##### LOGIN #####
-    
-    hashed_passwords = stauth.Hasher(['aluno2024', 'professor2024']).generate()
-    
-    ##### FUNÇÕES #####
-    
-    ##### PAGINAS #####
-     
-    #### Pagina 1 ####
 
 st.image('https://i.imgur.com/TBvRRfw.jpg', width=720)
 st.divider()
 st.title('Bem-Vindo(a) à Universidade Federal de Tangamandápio (UFTM)')
     
     
-    #### Pagina 2 ####
-
-    #### Pagina 3 ####
-    
-    def pagina_bonita():
-        st.header('Listagem dos Alunos', divider='rainbow')
-        st.title('Nesta Página')
-        st.markdown('''Você poderá ver quais alunos estão matriculados na **Universidade Federal de Tangamandápio**
-        \nClique no botão :red["Mostrar alunos matriculados"] para ver nossa lista de alunos matriculados''')
-    
-    #### Pagina 3.2 ####
-    
-    def pagina_exibicao():
-        st.title('Listagem de alunos matriculados')
-        conexao = conn_mysql()
-        if conexao:        
-            cursor = conexao.cursor()
-            cursor.execute('SELECT * FROM Alunos')
-            resultados = cursor.fetchall()
-            st.write("Resultados da consulta ao banco de dados MySQL: ")
-            for resultado in resultados:
-                st.write(f'CPF: {resultado[0]}, Nome: {resultado[1]}, Curso: {resultado[2]}, Telefone de contato: {resultado[3]}, Email: {resultado[4]}')
-    
-    #### Chamar as paginas ####
-    pagina_atual = st.sidebar.radio('Selecione uma opção:',('Início','Cadastro','Listagem'))
-    if pagina_atual == 'Cadastro':
-        pagina_cadastro()
-    elif pagina_atual == 'Início':
-        pagina_inicio()
-    elif pagina_atual == 'Listagem':
-        pagina_bonita()
-        if st.button ('Mostrar alunos matriculados'):
-            st.divider()
-            pagina_exibicao()        
-mae()
